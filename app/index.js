@@ -31,12 +31,12 @@ const kafka = new Kafka({
 
 const producer = kafka.producer({ createPartitioner: Partitioners.LegacyPartitioner });  
 const consumer = kafka.consumer({ groupId: 'tarea'});
-consumer.connect();
-consumer.subscribe({topic: 'login',fromBegining: true});
 
+
+
+const users = [];
 app.post('/login', async(req, res) =>{
     var term = { user: req.query.usr , password: req.query.pw };
-    var date = Date.now();
     console.log(term.user);
     await producer.connect();
     await producer.send({
@@ -46,38 +46,32 @@ app.post('/login', async(req, res) =>{
         ],
     });
     await producer.disconnect();
-    
-    await consumer.run({
-        eachMessage: async ({ topic, partition, message }) => {
-            console.log({
-                value: message.value.toString(),
-            }) 
-            var diff = message.timestamp.toString() - date;
-            console.log(diff);
-        },
-    })
+
+
 });
 
-app.get('/', async(req, res) => {
-    const producer = kafka.producer({ createPartitioner: Partitioners.LegacyPartitioner });
-    await producer.connect();
-    await producer.send({
-        topic: 'login',
-        messages: [
-            { value: 'holi' },
-        ],
-    });
-})
+
+
+
 app2.get('/blocked', async(req, res) =>{
     await consumer.connect();
     await consumer.subscribe({topic: 'login',fromBegining: true });
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
-            console.log({
+            users_blocked.push({"user": message.value.toString(), "time":message.timestamp.toString()});
+            /*console.log({
                 value: message.value.toString(),
-            }) 
+                timestamp: message.timestamp.toString(),
+            });*/
+            console.log(users_blocked);
         },
     })
+    for(let i = users_blocked.length - 1; i > 0; i--){
+        if(users_blocked[i].user ){
+
+        };
+    };
+    res.send(JSON.stringify(users_blocked));
 });
 
 
