@@ -8,7 +8,6 @@ Integrantes:
 - Docker compose up
 - Para intentar loggear entrar a la url localhost:3000/login?usr={}&pw={} donde {} son los valores de usuario y contraseña.
 - Para ver los usuarios bloqueados entrar en la url localhost:3001/blocked
-- Profit
 
 # Preguntas
 
