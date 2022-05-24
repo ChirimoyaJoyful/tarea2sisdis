@@ -32,7 +32,8 @@ app.get('/blocked', async(req, res) =>{
                 if(users[i].user == usuario.user ){
                     a++;
                     if (a == 5){
-                        var tf = users[i].time - usuario.time;
+                        var tf = usuario.time - users[i].time;
+                        console.log(tf);
                         if(tf < 60000){
                             bloqueados.push({"usr": usuario.user});    
                         }; 
