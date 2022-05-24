@@ -5,14 +5,15 @@ Integrantes:
 
 # Instrucciones de uso.
 - Descargar repositorio
-- Docker compose up
+- Levantar el container de docker con el comando >docker compose -f "docker-compose.yaml" up -d --build
 - Para intentar loggear entrar a la url localhost:3000/login?usr={}&pw={} donde {} son los valores de usuario y contraseña.
 - Para ver los usuarios bloqueados entrar en la url localhost:3001/blocked
 
 # Preguntas
 
 1.- ¿Por qué Kafka funciona bien en este escenario?
-R: Por que Kafka permite la comunicación de los 2 servicios(login y bloqueo) a traves de sus tópicos.
+
+R1: Por que Kafka permite la comunicación de los 2 servicios(login y bloqueo) a traves de sus tópicos.
 
 2.- Basado en las tecnologías que usted tiene a su disposición (Kafka, backend) ¿Qué haría usted para manejar
 una gran cantidad de usuarios al mismo tiempo?
