@@ -19,6 +19,8 @@ R1: Por que Kafka permite la comunicación de los 2 servicios(login y bloqueo) a
 2.- Basado en las tecnologías que usted tiene a su disposición (Kafka, backend) ¿Qué haría usted para manejar
 una gran cantidad de usuarios al mismo tiempo?
 
+R2: Aplicaríamos una gran cantidad de brokers en distintos contenedores, de esta manera se puede escalar horizontalmente y se puede manejar a una mayor cantidad de usuarios simultaneos.
+
 # Supuestos
 - Al no haber una base de datos de los usuarios con sus contraseñas, se asume que todo intento de login, sin importar la contraseña que se utilice, es un intento fallido.
 
