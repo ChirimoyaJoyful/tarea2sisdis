@@ -21,4 +21,6 @@ una gran cantidad de usuarios al mismo tiempo?
 
 # Supuestos
 - Al no haber una base de datos de los usuarios con sus contraseñas, se asume que todo intento de login, sin importar la contraseña que se utilice, es un intento fallido.
-- La información de los usuarion bloqueados se entrega a traves del console.log() por problemas técnicos.
+
+# Información extra
+- La información de los usuarion bloqueados se entrega a traves del console.log() debido a problemas en el código.
